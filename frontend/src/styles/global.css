@@ -1,0 +1,239 @@
+:root {
+  --navy-deep: #1A2846; /* Premium dark navy */
+  --navy: #2A3C62; /* Primary brand color */
+  --navy-light: #374E7C; /* Muted brand navy tint */
+  --ink: #111B2D; /* Deep ink for text and layout */
+  --paper: #ffffff;
+  --paper-dim: #F8F9FB; /* Very Light Gray */
+  --text-on-navy: #ffffff;
+  --text-muted-on-navy: #CCD5E3;
+  --text-body: #2B333E; /* Charcoal */
+  --text-muted: #5E6A7E;
+  --border-on-navy: rgba(255, 255, 255, 0.1);
+  --border-light: #E6EAF0; /* Soft Gray */
+
+  --font-display: "Roboto", sans-serif;
+  --font-body: "Roboto", sans-serif;
+
+  --container: 1180px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Modern browser scrolling offset support */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--text-body);
+  background: var(--paper);
+  line-height: 1.7; /* Generous line height */
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--navy); /* Primary Navy for eyebrow/links/icons */
+  margin-bottom: 20px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: var(--navy); /* Primary Navy divider */
+}
+
+/* Light sections: eyebrow is navy. On navy sections, let's make it text-muted-on-navy or border-light */
+.section--navy .eyebrow {
+  color: var(--text-muted-on-navy);
+}
+.section--navy .eyebrow::before {
+  background: var(--text-muted-on-navy);
+}
+
+section {
+  padding: 100px 0; /* Standard section padding for generous whitespace */
+  scroll-margin-top: 80px; /* Accounts for fixed navbar height */
+}
+
+.section--hero {
+  padding-top: 60px; /* Reduced excessive whitespace at the top of the page */
+  padding-bottom: 80px;
+  background: var(--paper);
+}
+
+.section--tight { padding: 64px 0; }
+
+.section--navy {
+  background: var(--navy-deep);
+  color: var(--text-on-navy);
+}
+
+.section--dim {
+  background: var(--paper-dim);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700; /* Bold and confident headings */
+  line-height: 1.25;
+  margin: 0 0 24px;
+  color: var(--navy); /* Primary navy for headings */
+}
+
+/* For h1 and h2 on navy background, inherit color (which is text-on-navy) */
+.section--navy h1,
+.section--navy h2,
+.section--navy h3,
+.section--navy h4 {
+  color: var(--text-on-navy);
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.85rem, 3.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: 1.35rem; font-weight: 500; }
+
+p { margin: 0 0 20px; color: var(--text-muted); font-size: 1.05rem; }
+.section--navy p { color: var(--text-muted-on-navy); }
+
+.lede {
+  font-size: 1.2rem;
+  font-weight: 300; /* Roboto light */
+  line-height: 1.7;
+  max-width: 720px;
+  color: var(--text-muted);
+}
+.section--navy .lede {
+  color: var(--text-muted-on-navy);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border-radius: 8px; /* 8-12px rounded corners */
+  border: 1.5px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--primary {
+  background: var(--navy);
+  color: var(--paper);
+}
+.btn--primary:hover {
+  background: #1f2c49; /* Slight darkening of #2A3C62 */
+}
+
+.btn--outline {
+  border-color: var(--navy);
+  color: var(--navy);
+  background: var(--paper);
+}
+.btn--outline:hover {
+  background: var(--paper-dim);
+}
+
+/* Outline on navy background */
+.section--navy .btn--outline {
+  border-color: var(--border-on-navy);
+  color: var(--text-on-navy);
+  background: transparent;
+}
+.section--navy .btn--outline:hover {
+  border-color: var(--text-on-navy);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.grid {
+  display: grid;
+  gap: 40px;
+}
+
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 900px) {
+  .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
+  section { padding: 70px 0; }
+}
+
+.card {
+  background: var(--paper);
+  border: 1.5px solid var(--border-light);
+  padding: 40px;
+  border-radius: 8px; /* 8-12px rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02); /* Soft shadows only */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--navy);
+  box-shadow: 0 8px 30px rgba(42, 60, 98, 0.05);
+}
+
+/* Card on navy background */
+.section--navy .card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-on-navy);
+  box-shadow: none;
+}
+.section--navy .card:hover {
+  border-color: var(--text-muted-on-navy);
+}
+
+.divider {
+  width: 48px;
+  height: 2px;
+  background: var(--navy);
+  margin-bottom: 28px;
+}
+.section--navy .divider {
+  background: var(--text-on-navy);
+}
+
+.placeholder-note {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  font-family: var(--font-body);
+  color: var(--text-body);
+  background: var(--paper-dim);
+  border: 1px solid var(--border-light);
+  padding: 16px 20px;
+  border-radius: 8px;
+  line-height: 1.6;
+}
