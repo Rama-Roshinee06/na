@@ -1,17 +1,34 @@
-import { Link } from "react-router-dom";
 import { brand, contact } from "../data/content.js";
 
 const links = [
-  { to: "/services", label: "Services" },
-  { to: "/about", label: "About" },
-  { to: "/industries", label: "Industries" },
-  { to: "/scenarios", label: "Scenarios" },
-  { to: "/founder", label: "Founder" },
-  { to: "/insights", label: "Insights" },
-  { to: "/contact", label: "Contact" }
+  { to: "#why-neutral", label: "Why Neutral" },
+  { to: "#services", label: "Services" },
+  { to: "#industries", label: "Industries" },
+  { to: "#approach", label: "Our Approach" },
+  { to: "#founder", label: "Founder" },
+  { to: "#insights", label: "Insights" },
+  { to: "#contact", label: "Contact" }
 ];
 
 export default function Footer() {
+  const handleLinkClick = (e, target) => {
+    e.preventDefault();
+    window.history.pushState(null, "", target);
+
+    const targetId = target.substring(1);
+    const element = document.getElementById(targetId);
+    if (element) {
+      const navbarHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
   return (
     <footer style={{ background: "var(--navy)", color: "var(--text-on-navy)", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
       <div className="container" style={{ padding: "64px 32px", fontSize: 14 }}>
@@ -27,11 +44,11 @@ export default function Footer() {
             <h4 style={{ color: "#ffffff", fontWeight: 600, fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", margin: "0 0 16px" }}>Navigation</h4>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px 24px" }}>
               {links.map((l) => (
-                <Link key={l.to} to={l.to} style={{ color: "var(--text-muted-on-navy)", fontSize: 13, transition: "color 0.15s ease" }}
+                <a key={l.to} href={l.to} onClick={(e) => handleLinkClick(e, l.to)} style={{ color: "var(--text-muted-on-navy)", fontSize: 13, transition: "color 0.15s ease" }}
                   onMouseOver={(e) => e.target.style.color = "#ffffff"}
                   onMouseOut={(e) => e.target.style.color = "var(--text-muted-on-navy)"}>
                   {l.label}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -39,7 +56,7 @@ export default function Footer() {
           <div>
             <h4 style={{ color: "#ffffff", fontWeight: 600, fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", margin: "0 0 16px" }}>Contact Details</h4>
             <p style={{ margin: "0 0 8px", fontSize: 13, color: "var(--text-muted-on-navy)" }}>
-              Office: {contact.office.includes("[[") ? "U.S. and International Advisory" : contact.office}
+              Office: {contact.office.includes("[[") ? "United States (International Engagements)" : contact.office}
             </p>
             <p style={{ margin: "0 0 8px", fontSize: 13, color: "var(--text-muted-on-navy)" }}>
               Email: {contact.email.includes("[[") ? "inquiry@neutraladvisory.com" : contact.email}

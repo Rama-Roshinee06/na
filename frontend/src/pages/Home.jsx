@@ -1,12 +1,11 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { hero } from "../data/content.js";
+import { hero, whyNeutral } from "../data/content.js";
 import heroGraphic from "../assets/hero-graphic.jpg";
 
 import Services from "./Services.jsx";
 import About from "./About.jsx";
 import Industries from "./Industries.jsx";
-import Scenarios from "./Scenarios.jsx";
 import Founder from "./Founder.jsx";
 import Insights from "./Insights.jsx";
 import Contact from "./Contact.jsx";
@@ -65,8 +64,8 @@ export default function Home() {
                 {hero.body}
               </p>
               <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-                <a href="#contact" onClick={(e) => handleLinkClick(e, "#contact")} className="btn btn--primary">{hero.primaryCta}</a>
-                <a href="#about" onClick={(e) => handleLinkClick(e, "#about")} className="btn btn--outline">{hero.secondaryCta}</a>
+                <a href="#contact" onClick={(e) => handleLinkClick(e, "#contact")} className="btn btn--primary">Schedule a Confidential Consultation</a>
+                <a href="#approach" onClick={(e) => handleLinkClick(e, "#approach")} className="btn btn--outline">View Our Approach</a>
               </div>
             </div>
             <div style={{ display: "flex", justifyContent: "center" }}>
@@ -87,24 +86,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WHY NEUTRAL ADVISORY */}
+      <section id="why-neutral" className="section--dim" style={{ borderTop: "1.5px solid var(--border-light)", borderBottom: "1.5px solid var(--border-light)" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <div className="eyebrow">Trust Signals</div>
+            <h2 style={{ color: "var(--navy)" }}>A Partner in High-Stakes Situations</h2>
+            <p className="lede" style={{ margin: "0 auto" }}>We operate with objectivity, preparation, and absolute discretion to help corporate leaders resolve commercial impasses.</p>
+          </div>
+
+          <div className="grid grid--2">
+            {whyNeutral.map((w, i) => (
+              <div key={i} className="card" style={{ background: "var(--paper)", border: "1.5px solid var(--border-light)" }}>
+                <h3 style={{ color: "var(--navy)", margin: "0 0 12px", fontSize: "1.25rem", fontWeight: 700 }}>{w.title}</h3>
+                <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: 1.6, color: "var(--text-body)" }}>{w.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
-      <section id="services" className="section--dim" style={{ borderTop: "1.5px solid var(--border-light)", borderBottom: "1.5px solid var(--border-light)" }}>
+      <section id="services">
         <Services />
       </section>
 
-      {/* ABOUT */}
-      <section id="about">
-        <About />
-      </section>
-
       {/* INDUSTRIES */}
-      <section id="industries" className="section--dim" style={{ borderTop: "1.5px solid var(--border-light)", borderBottom: "1.5px solid var(--border-light)" }}>
+      <section id="industries" className="section--tint" style={{ borderTop: "1.5px solid var(--border-light)", borderBottom: "1.5px solid var(--border-light)" }}>
         <Industries />
       </section>
 
-      {/* SCENARIOS */}
-      <section id="scenarios">
-        <Scenarios />
+      {/* APPROACH */}
+      <section id="approach">
+        <About />
       </section>
 
       {/* FOUNDER */}
@@ -118,12 +132,12 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="section--dim" style={{ borderTop: "1.5px solid var(--border-light)", borderBottom: "1.5px solid var(--border-light)" }}>
+      <section id="contact" className="section--tint" style={{ borderTop: "1.5px solid var(--border-light)", borderBottom: "1.5px solid var(--border-light)" }}>
         <Contact />
       </section>
 
       {/* FINAL CALL-TO-ACTION */}
-      <section className="section section--navy" style={{ textAlign: "center", borderTop: "1.5px solid var(--border-on-navy)" }}>
+      <section id="final-cta" className="section section--navy" style={{ textAlign: "center", borderTop: "1.5px solid var(--border-on-navy)" }}>
         <div className="container" style={{ maxWidth: 760 }}>
           <h2 style={{ color: "#ffffff", marginBottom: 16, fontSize: "2rem" }}>Partner-Led Strategic Alignment</h2>
           <p style={{ color: "var(--text-muted-on-navy)", fontSize: "1.1rem", lineHeight: 1.6, marginBottom: 32, fontWeight: 300 }}>

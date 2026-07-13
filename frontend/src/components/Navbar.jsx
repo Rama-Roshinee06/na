@@ -3,10 +3,10 @@ import { brand } from "../data/content.js";
 import "./Navbar.css";
 
 const links = [
+  { to: "#why-neutral", label: "Why Neutral" },
   { to: "#services", label: "Services" },
-  { to: "#about", label: "About" },
   { to: "#industries", label: "Industries" },
-  { to: "#scenarios", label: "Scenarios" },
+  { to: "#approach", label: "Our Approach" },
   { to: "#founder", label: "Founder" },
   { to: "#insights", label: "Insights" },
   { to: "#contact", label: "Contact" }
@@ -18,7 +18,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 120; // scroll offset calculation
+      const scrollPosition = window.scrollY + 120; // Scroll calculation offset
 
       for (const link of links) {
         const targetId = link.to.substring(1);
@@ -38,7 +38,7 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial call
+    handleScroll(); // Initial active state calculation
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -49,7 +49,7 @@ export default function Navbar() {
     e.preventDefault();
     setMobileMenuOpen(false);
     
-    // Update hash history without reloads
+    // Smooth scroll offset to clear sticky navbar height
     window.history.pushState(null, "", target);
 
     const targetId = target.substring(1);
@@ -74,7 +74,7 @@ export default function Navbar() {
           <span className="navbar__brand-sub">{brand.subtitle}</span>
         </a>
 
-        {/* Desktop Links */}
+        {/* Desktop Links (Exclude Contact from regular nav since it has a dedicated button) */}
         <nav className="navbar__links">
           {links.slice(0, 6).map((l) => (
             <a
@@ -88,11 +88,15 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <a href="#contact" onClick={(e) => handleLinkClick(e, "#contact")} className={`navbar__cta ${activeSection === "#contact" ? "navbar__cta--active" : ""}`}>
+        <a
+          href="#contact"
+          onClick={(e) => handleLinkClick(e, "#contact")}
+          className={`navbar__cta ${activeSection === "#contact" ? "navbar__cta--active" : ""}`}
+        >
           Confidential Consultation
         </a>
 
-        {/* Hamburger Menu Toggle */}
+        {/* Mobile Hamburger toggle */}
         <button className="navbar__hamburger" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle Menu">
           <span className={`navbar__hamburger-bar ${mobileMenuOpen ? "navbar__hamburger-bar--open" : ""}`}></span>
           <span className={`navbar__hamburger-bar ${mobileMenuOpen ? "navbar__hamburger-bar--open" : ""}`}></span>
@@ -100,7 +104,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="navbar__mobile-drawer">
           <nav className="navbar__mobile-links">

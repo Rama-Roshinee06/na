@@ -2,6 +2,7 @@
   --navy-deep: #1A2846; /* Premium dark navy */
   --navy: #2A3C62; /* Primary brand color */
   --navy-light: #374E7C; /* Muted brand navy tint */
+  --navy-tint: #EFF2F7; /* Very light brand navy tint */
   --ink: #111B2D; /* Deep ink for text and layout */
   --paper: #ffffff;
   --paper-dim: #F8F9FB; /* Very Light Gray */
@@ -76,17 +77,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 section {
-  padding: 100px 0; /* Standard section padding for generous whitespace */
+  padding: 80px 0; /* Reduced by 20% to improve flow without crowding */
   scroll-margin-top: 80px; /* Accounts for fixed navbar height */
 }
 
 .section--hero {
-  padding-top: 60px; /* Reduced excessive whitespace at the top of the page */
-  padding-bottom: 80px;
+  padding-top: 50px; /* Further reduced excessive whitespace at the top of the page */
+  padding-bottom: 70px;
   background: var(--paper);
 }
 
-.section--tight { padding: 64px 0; }
+.section--tight { padding: 48px 0; }
 
 .section--navy {
   background: var(--navy-deep);
@@ -95,6 +96,10 @@ section {
 
 .section--dim {
   background: var(--paper-dim);
+}
+
+.section--tint {
+  background: var(--navy-tint);
 }
 
 h1, h2, h3, h4 {
@@ -117,7 +122,7 @@ h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 700; letter-spacing: -0
 h2 { font-size: clamp(1.85rem, 3.5vw, 2.5rem); font-weight: 700; letter-spacing: -0.01em; }
 h3 { font-size: 1.35rem; font-weight: 500; }
 
-p { margin: 0 0 20px; color: var(--text-muted); font-size: 1.05rem; }
+p { margin: 0 0 20px; color: var(--text-muted); font-size: 1.09 rem; }
 .section--navy p { color: var(--text-muted-on-navy); }
 
 .lede {
@@ -188,7 +193,7 @@ p { margin: 0 0 20px; color: var(--text-muted); font-size: 1.05rem; }
 
 @media (max-width: 900px) {
   .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
-  section { padding: 70px 0; }
+  section { padding: 60px 0; }
 }
 
 .card {

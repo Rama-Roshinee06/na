@@ -21,8 +21,8 @@ export const founder = {
   tagline:
     "Strategic Negotiation Advisor | Commercial Resolution Specialist | Executive Decision Support",
   bio: [
-    "Shrivatsan Balagopal serves as a trusted advisor to executives, founders, and boards navigating commercially significant negotiations, institutional challenges, and complex stakeholder disputes.",
-    "With extensive experience across banking, insurance, telecommunications, and highly regulated business environments, he provides objective decision support and strategic negotiation expertise to resolve complex matters before they escalate to litigation.",
+    "Shrivatsan Balagopal serves as a trusted strategic advisor to corporate leaders, boards, and general counsel facing complex commercial challenges, high-value disputes, and institutional deadlocks.",
+    "Drawing on extensive experience across banking, insurance, telecommunications, and highly regulated environments, he provides objective decision support and strategic negotiation expertise to resolve complex matters before they escalate to litigation.",
     "His work focuses on high-value commercial claims, post-lending obligations, regulatory interactions, and restructuring negotiations where disciplined strategy, structured preparation, and commercial objectivity are critical."
   ],
   philosophy:
@@ -37,11 +37,11 @@ export const brand = {
 };
 
 export const hero = {
-  headline: "Resolving Complex Commercial Disputes Before Litigation",
+  headline: "We Help Executives Resolve Commercial Disputes Before They Become Litigation",
   body:
     "Neutral Advisory provides independent strategic negotiation and decision support for corporate executives, boards, and general counsel facing high-stakes institutional disputes and commercial conflicts.",
   primaryCta: "Schedule a Confidential Consultation",
-  secondaryCta: "Learn Our Approach"
+  secondaryCta: "View Our Approach"
 };
 
 export const pillars = [
@@ -61,11 +61,8 @@ export const pillars = [
 
 export const philosophy = {
   eyebrow: "Our Philosophy",
-  headline: "Objective Thinking Creates Better Commercial Outcomes.",
-  body: [
-    "Commercial negotiations often become difficult not because solutions are unavailable, but because stakeholders become entrenched in positions rather than interests.",
-    "Neutral Advisory helps organizations negotiate with clarity, structure, and commercial discipline — enabling informed decisions that preserve business value and support sustainable outcomes."
-  ]
+  headline: "Discipline, Preparation, and Objectivity",
+  body: "We believe that successful negotiations are built on facts, preparation, and disciplined commercial thinking — not confrontation. Our approach emphasizes objectivity, structured preparation weeks before the first meeting, and analyzing underlying business interests rather than entrenched legal positions. This methodology enables executive leaders to make informed decisions that protect corporate value and preserve critical relationships."
 };
 
 export const whenToEngage = [
@@ -103,51 +100,43 @@ export const processSteps = {
   steps: [
     {
       step: "01",
-      title: "Understand the Situation",
-      body: "We conduct a rapid, confidential assessment of the dispute, mapping the history, key stakeholders, and institutional context."
+      title: "Understand",
+      body: "We conduct a rapid, confidential assessment of the dispute context, historical relationships, and stakeholder positions."
     },
     {
       step: "02",
-      title: "Analyze Interests & Risks",
-      body: "We look beyond formal legal positions to identify the underlying commercial interests, financial exposures, and operational risks of all parties."
+      title: "Assess",
+      body: "We analyze the underlying commercial interests, financial exposures, and operational risks of all involved parties."
     },
     {
       step: "03",
-      title: "Develop Executive Strategy",
-      body: "We formulate a structured negotiation strategy, including leverage analysis, messaging frameworks, and decision-support modeling for leadership."
+      title: "Strategize",
+      body: "We formulate a structured negotiation strategy, including scenario modeling, leverage analysis, and messaging frameworks."
     },
     {
       step: "04",
-      title: "Support Resolution",
-      body: "We advise executives throughout the engagement, providing real-time strategic counsel to break impasses and secure sustainable commercial agreements."
+      title: "Resolve",
+      body: "We advise executives in real-time throughout the engagement to execute the strategy, break impasses, and secure agreements."
     }
   ]
 };
 
 export const whyNeutral = [
   {
-    title: "Confidential Engagements",
-    body: "We operate with absolute discretion, protecting your organization's reputation and commercial positions."
+    title: "Independent Counsel",
+    body: "Operating free from corporate or banking conflicts, ensuring unbiased risk assessments and objective strategic options."
+  },
+  {
+    title: "Discreet Engagement",
+    body: "Strict confidentiality protocols protect your organization's reputation and commercial positions throughout negotiations."
+  },
+  {
+    title: "Commercially Focused",
+    body: "Structured strategies designed to align competing stakeholders and resolve deadlocks before they trigger litigation expenses."
   },
   {
     title: "Founder-Led Advisory",
-    body: "Every engagement receives the direct, personal attention and deep commercial expertise of Shrivatsan Balagopal."
-  },
-  {
-    title: "Independent Perspective",
-    body: "Free from institutional conflicts, we provide objective, unbiased analysis of your negotiation leverage and risks."
-  },
-  {
-    title: "Commercial Expertise",
-    body: "We focus on business-centric resolutions that prioritize financial value and operational continuity over legal posturing."
-  },
-  {
-    title: "Strategic Negotiation Framework",
-    body: "Our methodology is built on rigorous analysis of interests, systematic preparation, and disciplined communication strategy."
-  },
-  {
-    title: "Executive Decision Support",
-    body: "We equip boards and C-suite leaders with the clear frameworks and scenario modeling needed to make high-stakes decisions."
+    body: "Every engagement is directly led and executed by Shrivatsan Balagopal, providing senior-level counsel at every phase."
   }
 ];
 
@@ -166,27 +155,39 @@ export const about = {
 export const services = [
   {
     title: "Commercial Dispute Advisory",
-    body: "Independent, strategic analysis and guidance for resolving complex, multi-party commercial conflicts outside of adversarial proceedings."
+    challenge: "Escalating contract disagreements and commercial deadlocks threatening joint ventures or critical business relationships.",
+    role: "Formulating strategic negotiation postures, analyzing stakeholder leverage, and facilitating communication pathways.",
+    outcome: "Sustainable commercial resolutions achieved quietly, bypassing public courts and preserving key partner relationships."
   },
   {
     title: "Executive Negotiation Strategy",
-    body: "Structured preparation, scenario planning, and real-time decision support for high-value business negotiations."
+    challenge: "High-value business negotiations where leverage is misidentified and structural preparation is lacking.",
+    role: "Providing scenario planning, prepared positioning, and real-time decision-support modeling for leadership teams.",
+    outcome: "Optimized negotiation outcomes and aligned boardroom expectations under pressurized conditions."
   },
   {
     title: "Stakeholder Alignment",
-    body: "Facilitating consensus and resolving deadlocks among boards, lenders, shareholders, and joint venture partners."
+    challenge: "Conflicting priorities among boards, lenders, insurers, and key partners stalling critical corporate actions.",
+    role: "Designing structured negotiation frameworks to identify shared economic interests and bridge impasses.",
+    outcome: "Board and stakeholder consensus secured, restoring corporate momentum and path forward."
   },
   {
     title: "Pre-Litigation Resolution",
-    body: "Designing and executing structured negotiation pathways to settle business-critical disputes before they escalate to public court battles."
+    challenge: "Imminent threat of costly, public, and prolonged court proceedings draining executive resources.",
+    role: "Developing and executing out-of-court settlement strategies and disciplined executive communications.",
+    outcome: "Disputes settled discreetly and efficiently, protecting corporate value and avoiding legal exposure."
   },
   {
     title: "Board-Level Conflict Support",
-    body: "Objective advisory for corporate boards, founders, and managing directors facing sensitive internal governance or strategic impasses."
+    challenge: "Sensitive governance impasses, founder disagreements, or strategic direction deadlocks.",
+    role: "Acting as an independent, objective advisor to analyze leverage, interest alignment, and settlement pathways.",
+    outcome: "Governance deadlock resolved and constructive executive decision-making re-established."
   },
   {
     title: "Insurance & Contract Dispute Advisory",
-    body: "Strategic advocacy and negotiation support for resolving high-value commercial insurance claims and complex contract performance disagreements."
+    challenge: "Significant commercial insurance claim disputes, coverage denials, or contract performance impasses.",
+    role: "Analyzing complex policy terms, coordinating multi-party claim positioning, and leading settlement discussions.",
+    outcome: "Claim recovery maximized and contract performance disputes settled with minimal operational disruption."
   }
 ];
 
@@ -278,7 +279,7 @@ export const faq = {
 
 export const insights = [
   {
-    id: "why-ceos-lose-before-entering-room",
+    id: "why-ceos-lose-entering-room",
     category: "Negotiation Strategy",
     title: "Why Most CEOs Lose Before They Enter the Room",
     excerpt:
@@ -297,7 +298,7 @@ export const insights = [
   },
   {
     id: "leverage-is-not-what-you-think",
-    category: "Executive Insight",
+    category: "Executive Leadership",
     title: "Leverage Is Not What You Think It Is",
     excerpt:
       "Founders and executives consistently misidentify their own leverage — and systematically underestimate their counterpart's. A framework for clarity.",
