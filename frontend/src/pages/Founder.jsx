@@ -12,14 +12,40 @@ export default function Founder() {
 
   return (
     <div className="container">
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 64, alignItems: "start" }} className="grid-responsive-founder">
-        {/* Left Column: Metadata */}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 64, alignItems: "center" }} className="grid-responsive-founder">
+        {/* Left Column: Metadata & Portrait Placeholder */}
         <div>
           <div className="eyebrow">Founder & Principal</div>
           <h2 style={{ margin: "0 0 12px", color: "var(--navy)", fontSize: "2.4rem", fontWeight: 700 }}>{founder.name}</h2>
           <p style={{ color: "var(--navy)", fontWeight: 600, fontSize: "1.1rem", margin: "0 0 20px" }}>{founder.title}</p>
-          <div className="divider" style={{ width: 64 }}></div>
+          <div className="divider" style={{ width: 64, marginBottom: 24 }}></div>
           
+          <div style={{ marginBottom: 28 }}>
+            <div style={{
+              width: "100%",
+              aspectRatio: "1/1",
+              borderRadius: 8,
+              border: "1.5px dashed var(--navy)",
+              background: "var(--navy-tint)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 12,
+              color: "var(--navy)",
+              padding: 24,
+              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.02)"
+            }}>
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+              <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", textAlign: "center" }}>
+                Founder Portrait Placeholder
+              </span>
+            </div>
+          </div>
+
           <p style={{ fontSize: "0.95rem", lineHeight: 1.6, color: "var(--text-muted)", marginBottom: 32 }}>
             {founder.tagline}
           </p>

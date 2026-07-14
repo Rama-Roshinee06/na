@@ -5,7 +5,7 @@
   --navy-tint: #EFF2F7; /* Very light brand navy tint */
   --ink: #111B2D; /* Deep ink for text and layout */
   --paper: #ffffff;
-  --paper-dim: #F8F9FB; /* Very Light Gray */
+  --paper-dim: #F4F5F8; /* Light Slate Gray */
   --text-on-navy: #ffffff;
   --text-muted-on-navy: #CCD5E3;
   --text-body: #2B333E; /* Charcoal */
@@ -100,6 +100,10 @@ section {
 
 .section--tint {
   background: var(--navy-tint);
+}
+
+.section--alt-dim {
+  background: #F9FAFC; /* Distinct neutral off-white/gray */
 }
 
 h1, h2, h3, h4 {

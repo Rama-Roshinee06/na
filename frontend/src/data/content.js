@@ -21,25 +21,25 @@ export const founder = {
   tagline:
     "Strategic Negotiation Advisor | Commercial Resolution Specialist | Executive Decision Support",
   bio: [
-    "Shrivatsan Balagopal serves as a trusted strategic advisor to corporate leaders, boards, and general counsel facing complex commercial challenges, high-value disputes, and institutional deadlocks.",
-    "Drawing on extensive experience across banking, insurance, telecommunications, and highly regulated environments, he provides objective decision support and strategic negotiation expertise to resolve complex matters before they escalate to litigation.",
-    "His work focuses on high-value commercial claims, post-lending obligations, regulatory interactions, and restructuring negotiations where disciplined strategy, structured preparation, and commercial objectivity are critical."
+    "Shrivatsan works directly with corporate leaders, boards, and general counsel when a commercial dispute has gotten complicated enough that they need someone outside the building to help think it through.",
+    "His background spans banking, insurance, and telecom — sectors where the stakes are high and the regulatory environment leaves little room for error. That experience shapes how he reads a dispute and where he looks for the path out of it.",
+    "His work today focuses on high-value commercial claims, post-lending disputes, regulatory friction, and restructuring negotiations — situations where discipline and a clear head matter more than posturing."
   ],
   philosophy:
-    "We believe the strongest negotiations are not won through confrontation, but through preparation, objectivity, and disciplined commercial thinking. Successful outcomes emerge when organizations understand interests — not merely positions — and engage stakeholders through informed strategy rather than emotion."
+    "I've never seen a negotiation won by being the loudest person in the room. The ones that go well are won beforehand — by understanding what the other side actually needs, not just what they're asking for."
 };
 
 export const brand = {
   name: "Neutral Advisory",
   subtitle: "Strategic Negotiation & Commercial Resolution Advisory",
   positioningStatement:
-    "Neutral Advisory is an independent strategic negotiation and commercial resolution advisory firm helping organizations negotiate, navigate, and resolve high-stakes commercial challenges involving financial institutions, insurers, regulators, and complex stakeholder environments."
+    "Neutral Advisory helps executives and boards work through high-stakes commercial disputes — with banks, insurers, regulators, or each other — before they turn into lawsuits."
 };
 
 export const hero = {
   headline: "We Help Executives Resolve Commercial Disputes Before They Become Litigation",
   body:
-    "Neutral Advisory provides independent strategic negotiation and decision support for corporate executives, boards, and general counsel facing high-stakes institutional disputes and commercial conflicts.",
+    "When a commercial dispute threatens to become a lawsuit, we step in — working directly with executives, boards, and general counsel to find a way through it before it costs you the relationship, the reputation, or the money.",
   primaryCta: "Schedule a Confidential Consultation",
   secondaryCta: "View Our Approach"
 };
@@ -62,7 +62,7 @@ export const pillars = [
 export const philosophy = {
   eyebrow: "Our Philosophy",
   headline: "Discipline, Preparation, and Objectivity",
-  body: "We believe that successful negotiations are built on facts, preparation, and disciplined commercial thinking — not confrontation. Our approach emphasizes objectivity, structured preparation weeks before the first meeting, and analyzing underlying business interests rather than entrenched legal positions. This methodology enables executive leaders to make informed decisions that protect corporate value and preserve critical relationships."
+  body: "Most negotiations are lost weeks before anyone sits down at the table — not because of a weak position, but because no one prepared properly. We do the groundwork early: understanding what's actually driving the other side, not just what they're demanding, so you walk in ready instead of reactive."
 };
 
 export const whenToEngage = [
@@ -101,42 +101,44 @@ export const processSteps = {
     {
       step: "01",
       title: "Understand",
-      body: "We conduct a rapid, confidential assessment of the dispute context, historical relationships, and stakeholder positions."
+      body: "We start with a fast, confidential read on the dispute — the history, the relationships, and where everyone actually stands."
     },
     {
       step: "02",
       title: "Assess",
-      body: "We analyze the underlying commercial interests, financial exposures, and operational risks of all involved parties."
+      body: "Then we dig into what's really at stake: the commercial interests, the financial exposure, the risk each side is carrying."
     },
     {
       step: "03",
       title: "Strategize",
-      body: "We formulate a structured negotiation strategy, including scenario modeling, leverage analysis, and messaging frameworks."
+      body: "From there, we build the actual game plan — how to approach the room, what leverage exists, how to open the conversation."
     },
     {
       step: "04",
       title: "Resolve",
-      body: "We advise executives in real-time throughout the engagement to execute the strategy, break impasses, and secure agreements."
+      body: "And we stay in it with you, advising in real time as things move, so impasses get broken and agreements get signed."
     }
   ]
 };
 
+export const whyNeutralIntro = "No banking ties, no law firm politics, no conflicts of interest — just a clear-eyed read on your situation and a plan to get through it.";
+
 export const whyNeutral = [
   {
     title: "Independent Counsel",
-    body: "Operating free from corporate or banking conflicts, ensuring unbiased risk assessments and objective strategic options."
+    body: "We're not tied to a bank, a law firm, or an insurer, so the read you get is the real one — not one shaped by who else is paying us."
   },
   {
     title: "Discreet Engagement",
-    body: "Strict confidentiality protocols protect your organization's reputation and commercial positions throughout negotiations."
+    body: "What's discussed stays discussed. Every engagement is handled under strict confidentiality, protecting your position at the table and your reputation outside it."
   },
   {
     title: "Commercially Focused",
-    body: "Structured strategies designed to align competing stakeholders and resolve deadlocks before they trigger litigation expenses."
+    body: "We build negotiation strategy around the business outcome you actually need, not the fight itself. The goal is resolution, not a longer, more expensive standoff."
   },
   {
     title: "Founder-Led Advisory",
-    body: "Every engagement is directly led and executed by Shrivatsan Balagopal, providing senior-level counsel at every phase."
+    body: "You work directly with Shrivatsan on every engagement, not a junior team. Senior judgment, from day one to close."
   }
 ];
 
@@ -222,7 +224,10 @@ export const industries = [
   {
     title: "Highly Regulated Sectors",
     items: [
-      "Strategic navigation of complex regulatory frameworks, multi-stakeholder disputes, and state-owned entity interactions."
+      "Regulatory compliance navigation",
+      "Multi-stakeholder dispute coordination",
+      "State-owned entity negotiations",
+      "Compliance-critical commercial contracts"
     ]
   }
 ];
@@ -277,6 +282,8 @@ export const faq = {
   ]
 };
 
+export const insightsIntro = "Notes on negotiation, dispute strategy, and the mistakes we see executives make most often.";
+
 export const insights = [
   {
     id: "why-ceos-lose-entering-room",
@@ -309,11 +316,16 @@ export const insights = [
 
 export const contact = {
   headline: "Begin a Confidential Conversation.",
-  body: "Every commercial situation is different. Whether your organization is preparing for a significant negotiation, navigating a complex institutional challenge, or seeking an independent strategic perspective, Neutral Advisory offers confidential, founder-led advisory tailored to your commercial objectives.",
+  body: "No two disputes are the same, so tell us what's going on and we'll tell you honestly whether we can help. Every conversation is confidential, and you'll be talking directly with Shrivatsan — not a call center.",
   office: "[[ CONFIRM WITH FOUNDER: primary office / engagement geography ]]",
   email: "[[ CONFIRM: direct contact email ]]",
   whatsappDisclaimer:
     "[[ CONFIRM EXACT WORDING WITH FOUNDER — his brief requires a disclaimer stating this contact information may be shared via WhatsApp. Do not invent legal/compliance language yourself. ]]",
   confidentialityNote:
     "All communications are held in strict confidence and are not shared with third parties."
+};
+
+export const bottomCta = {
+  headline: "Ready to Talk Through Your Situation?",
+  body: "Get in touch and we'll help you figure out the strongest way forward — before things escalate any further than they need to."
 };

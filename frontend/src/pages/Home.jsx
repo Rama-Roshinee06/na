@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { hero, whyNeutral } from "../data/content.js";
+import { hero, whyNeutral, bottomCta, whyNeutralIntro } from "../data/content.js";
 import heroGraphic from "../assets/hero-graphic.jpg";
 
 import Services from "./Services.jsx";
@@ -89,21 +89,34 @@ export default function Home() {
       {/* WHY NEUTRAL ADVISORY */}
       <section id="why-neutral" className="section--dim" style={{ borderTop: "1.5px solid var(--border-light)", borderBottom: "1.5px solid var(--border-light)" }}>
         <div className="container">
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <div className="eyebrow">Trust Signals</div>
-            <h2 style={{ color: "var(--navy)" }}>A Partner in High-Stakes Situations</h2>
-            <p className="lede" style={{ margin: "0 auto" }}>We operate with objectivity, preparation, and absolute discretion to help corporate leaders resolve commercial impasses.</p>
-          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 64, alignItems: "center" }} className="grid-responsive-why">
+            <div>
+              <div className="eyebrow">Trust Signals</div>
+              <h2 style={{ color: "var(--navy)", margin: "0 0 20px" }}>A Partner in High-Stakes Situations</h2>
+              <p className="lede" style={{ margin: 0 }}>
+                {whyNeutralIntro}
+              </p>
+            </div>
 
-          <div className="grid grid--2">
-            {whyNeutral.map((w, i) => (
-              <div key={i} className="card" style={{ background: "var(--paper)", border: "1.5px solid var(--border-light)" }}>
-                <h3 style={{ color: "var(--navy)", margin: "0 0 12px", fontSize: "1.25rem", fontWeight: 700 }}>{w.title}</h3>
-                <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: 1.6, color: "var(--text-body)" }}>{w.body}</p>
-              </div>
-            ))}
+            <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+              {whyNeutral.map((w, i) => (
+                <div key={i} style={{ borderLeft: "3px solid var(--navy)", paddingLeft: 20 }}>
+                  <h3 style={{ color: "var(--navy)", margin: "0 0 8px", fontSize: "1.2rem", fontWeight: 700 }}>{w.title}</h3>
+                  <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: 1.6, color: "var(--text-body)" }}>{w.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
+        
+        <style>{`
+          @media (max-width: 900px) {
+            .grid-responsive-why {
+              grid-template-columns: 1fr !important;
+              gap: 40px !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* SERVICES */}
@@ -132,16 +145,16 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="section--tint" style={{ borderTop: "1.5px solid var(--border-light)", borderBottom: "1.5px solid var(--border-light)" }}>
+      <section id="contact" className="section--alt-dim" style={{ borderTop: "1.5px solid var(--border-light)", borderBottom: "1.5px solid var(--border-light)" }}>
         <Contact />
       </section>
 
       {/* FINAL CALL-TO-ACTION */}
       <section id="final-cta" className="section section--navy" style={{ textAlign: "center", borderTop: "1.5px solid var(--border-on-navy)" }}>
         <div className="container" style={{ maxWidth: 760 }}>
-          <h2 style={{ color: "#ffffff", marginBottom: 16, fontSize: "2rem" }}>Partner-Led Strategic Alignment</h2>
+          <h2 style={{ color: "#ffffff", marginBottom: 16, fontSize: "2rem" }}>{bottomCta.headline}</h2>
           <p style={{ color: "var(--text-muted-on-navy)", fontSize: "1.1rem", lineHeight: 1.6, marginBottom: 32, fontWeight: 300 }}>
-            Every commercial conflict is unique. Engage our independent advisory to establish structured preparation, objective risk modeling, and a clear path to commercial resolution.
+            {bottomCta.body}
           </p>
           <a href="#contact" onClick={(e) => handleLinkClick(e, "#contact")} className="btn btn--primary" style={{ background: "#ffffff", color: "var(--navy)" }}>
             Schedule a Confidential Consultation

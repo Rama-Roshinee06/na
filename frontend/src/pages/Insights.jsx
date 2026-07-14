@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { insights } from "../data/content.js";
-import PlaceholderNote from "../components/PlaceholderNote.jsx";
+import { insights, insightsIntro } from "../data/content.js";
 
 export default function Insights() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -34,13 +33,7 @@ export default function Insights() {
       <div style={{ marginBottom: 48 }}>
         <div className="eyebrow">Strategic Perspectives</div>
         <h2 style={{ maxWidth: 720, margin: "0 0 20px", color: "var(--navy)" }}>Commercial Advisory Briefings</h2>
-        <p className="lede">Strategic frameworks and analysis for executive leadership navigating commercially critical negotiations.</p>
-      </div>
-
-      <div style={{ marginBottom: 48 }}>
-        <PlaceholderNote>
-          The analyses below represent strategic frameworks prepared for client alignment. In Phase 2, this section will integrate with a secure digital client repository.
-        </PlaceholderNote>
+        <p className="lede">{insightsIntro}</p>
       </div>
 
       {/* Category Filter Bar */}
@@ -83,7 +76,7 @@ export default function Insights() {
               <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 16 }}>
                 <span className="eyebrow" style={{ fontSize: 10, margin: 0 }}>Featured Briefing</span>
                 <span style={{ fontSize: 12, color: "var(--text-muted)" }}>•</span>
-                <span style={{ fontSize: 12, color: "var(--text-muted)", fontWeight: 500 }}>October 2026</span>
+                <span style={{ fontSize: 12, color: "var(--text-muted)", fontWeight: 500 }}>July 2026</span>
               </div>
               <h3 style={{ fontSize: "2rem", color: "var(--navy)", fontWeight: 700, margin: "0 0 20px" }}>{featuredArticle.title}</h3>
               <p style={{ fontSize: "1.1rem", lineHeight: 1.7, color: "var(--text-body)", marginBottom: 32 }}>{featuredArticle.excerpt}</p>

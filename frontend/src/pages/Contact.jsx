@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { contact } from "../data/content.js";
-import PlaceholderNote from "../components/PlaceholderNote.jsx";
 
 const initialForm = {
   fullName: "",
@@ -55,14 +54,6 @@ export default function Contact() {
             </div>
           </div>
 
-          <div style={{ marginBottom: 24 }}>
-            <PlaceholderNote>
-              {contact.whatsappDisclaimer.includes("[[") 
-                ? "Communications via WhatsApp are processed in compliance with Neutral Advisory's privacy and data retention policies." 
-                : contact.whatsappDisclaimer}
-            </PlaceholderNote>
-          </div>
-
           <p style={{ margin: 0, fontSize: "0.85rem", color: "var(--text-muted)", fontStyle: "italic" }}>
             {contact.confidentialityNote}
           </p>
@@ -74,12 +65,12 @@ export default function Contact() {
             <div className="card" style={{ background: "var(--paper)", border: "1.5px solid var(--border-light)", padding: 48, textAlign: "center" }}>
               <h3 style={{ color: "var(--navy)", fontSize: "1.5rem", fontWeight: 700, marginBottom: 16 }}>Inquiry Logged</h3>
               <p style={{ color: "var(--text-body)", fontSize: "1rem", lineHeight: 1.6, marginBottom: 32 }}>
-                Your inquiry has been successfully logged to the console for this demo.
+                Your inquiry has been successfully logged.
                 In Phase 2, this will submit directly to our secure client intake repository.
               </p>
               <button className="btn btn--outline" style={{ display: "inline-flex" }}
                 onClick={() => { setSubmitted(false); setForm(initialForm); }}>
-                Submit Another Inquiry
+                Submit Inquiry
               </button>
             </div>
           ) : (
@@ -153,7 +144,7 @@ export default function Contact() {
               </label>
 
               <button type="submit" className="btn btn--primary" style={{ width: "100%", padding: "16px 0", justifyContent: "center" }}>
-                Submit Confidential Inquiry
+                Submit Inquiry
               </button>
             </form>
           )}

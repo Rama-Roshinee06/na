@@ -93,7 +93,7 @@ export default function Navbar() {
           onClick={(e) => handleLinkClick(e, "#contact")}
           className={`navbar__cta ${activeSection === "#contact" ? "navbar__cta--active" : ""}`}
         >
-          Confidential Consultation
+          Schedule a Confidential Consultation
         </a>
 
         {/* Mobile Hamburger toggle */}

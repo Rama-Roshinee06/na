@@ -40,8 +40,9 @@
 
 .navbar__links {
   display: flex;
-  gap: 32px;
-  flex-wrap: wrap;
+  gap: 20px; /* Reduced from 32px to fit without wrapping */
+  flex-wrap: nowrap; /* Prevent double line wrapping */
+  align-items: center;
 }
 
 .navbar__link {
@@ -60,7 +61,7 @@
 .navbar__cta {
   background: var(--navy); /* Solid #2A3C62 */
   border: 1px solid var(--navy);
-  padding: 10px 20px;
+  padding: 10px 16px; /* Tighter padding for horizontal safety */
   font-size: 13px;
   font-weight: 600;
   border-radius: 8px; /* Rounded corners */
@@ -151,7 +152,7 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1250px) {
   .navbar__links { display: none; }
   .navbar__cta { display: none; }
   .navbar__hamburger { display: flex; }
