@@ -21,7 +21,7 @@ export const industriesIntro = {
 };
 export const servicesIntro = {
   eyebrow: "Advisory Engagements",
-  headline: "Strategic Counsel for Complex Commercial Disputes",
+  headline: "Strategic Advisory for Complex Commercial Disputes",
   body: "We structure our advisory engagements around risk preemption, board alignment, and value protection."
 };
 export const founder = {
@@ -30,7 +30,7 @@ export const founder = {
   tagline:
     "Strategic Negotiation Advisor | Commercial Resolution Specialist | Executive Decision Support",
   bio: [
-    "Shrivatsan works directly with corporate leaders, boards, and general counsel when a commercial dispute has gotten complicated enough that they need someone outside the building to help think it through.",
+    "Shrivatsan works directly with corporate leaders, boards, and legal teams when a commercial dispute has gotten complicated enough that they need someone outside the building to help think it through.",
     "His background spans banking, insurance, and telecom — sectors where the stakes are high and the regulatory environment leaves little room for error. That experience shapes how he reads a dispute and where he looks for the path out of it.",
     "His work today focuses on high-value commercial claims, post-lending disputes, regulatory friction, and restructuring negotiations — situations where discipline and a clear head matter more than posturing."
   ],
@@ -48,7 +48,7 @@ export const brand = {
 export const hero = {
   headline: "We Help Executives Resolve Commercial Disputes Before They Become Litigation",
   body:
-    "When a commercial dispute threatens to become a lawsuit, we step in — working directly with executives, boards, and general counsel to find a way through it before it costs you the relationship, the reputation, or the money.",
+    "When a commercial dispute threatens to become a lawsuit, we step in — working directly with executives, boards, and legal teams to find a way through it before it costs you the relationship, the reputation, or the money.",
   primaryCta: "Schedule a Confidential Consultation",
   secondaryCta: "View Our Approach"
 };
@@ -86,15 +86,15 @@ export const whenToEngage = [
 export const whoWeServe = {
   eyebrow: "Who We Serve",
   headline: "Tailored Advisory for Executive Leaders",
-  body: "We partner with decision-makers who require objective counsel to navigate complex commercial disputes and institutional impasses.",
+  body: "We partner with decision-makers who require objective guidance to navigate complex commercial disputes and institutional impasses.",
   audiences: [
     {
       title: "Corporate Executives & C-Suite",
       body: "For CEOs, CFOs, and business leaders managing high-stakes disputes where commercial continuity and value preservation are critical."
     },
     {
-      title: "General Counsel",
-      body: "For chief legal officers seeking a strategic, commercially focused negotiation path to resolve disputes before committing to costly litigation."
+      title: "Legal Leadership",
+      body: "For chief legal officers and legal leadership seeking a strategic, commercially focused negotiation path to resolve disputes before committing to costly litigation."
     },
     {
       title: "Boards & Founders",
@@ -134,7 +134,7 @@ export const whyNeutralIntro = "No banking ties, no law firm politics, no confli
 
 export const whyNeutral = [
   {
-    title: "Independent Counsel",
+    title: "Independent Advisor",
     body: "We're not tied to a bank, a law firm, or an insurer, so the read you get is the real one — not one shaped by who else is paying us."
   },
   {
@@ -222,7 +222,7 @@ export const services = [
   },
   {
     title: "Board-Level Conflict Support",
-    summary: "Help boards and founders move past governance deadlock with focused independent counsel.",
+    summary: "Help boards and founders move past governance deadlock with focused independent advisory support.",
     focus: [
       "Governance deadlock",
       "Interest analysis",
@@ -321,8 +321,8 @@ export const faq = {
   headline: "Clarity on Our Engagement Model",
   items: [
     {
-      question: "How do you work with our existing legal counsel?",
-      answer: "We operate in tandem with your external and in-house legal teams. While legal counsel manages litigation strategy and legal positioning, Neutral Advisory focuses on commercial negotiation strategy, economic interest analysis, and structuring out-of-court resolutions."
+      question: "How do you work with our existing legal team?",
+      answer: "We operate in tandem with your external and in-house legal teams. While legal teams manage litigation strategy and legal positioning, Neutral Advisory focuses on commercial negotiation strategy, economic interest analysis, and structuring out-of-court resolutions."
     },
     {
       question: "At what stage should we engage Neutral Advisory?",

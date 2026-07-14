@@ -6,7 +6,7 @@ export default function Scenarios() {
       <div style={{ marginBottom: 64 }}>
         <div className="eyebrow">Engagement Scenarios</div>
         <h2 style={{ maxWidth: 720, margin: "0 0 20px", color: "var(--navy)" }}>Precedents of Strategic Commercial Resolution</h2>
-        <p className="lede">Every commercial challenge is unique. The following scenarios illustrate engagements where structured preparation and independent counsel mitigated risk and resolved complex disputes.</p>
+        <p className="lede">Every commercial challenge is unique. The following scenarios illustrate engagements where structured preparation and independent advisory support mitigated risk and resolved complex disputes.</p>
       </div>
 
       <div style={{ display: "grid", gap: 8 }}>

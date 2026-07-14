@@ -76,7 +76,7 @@ export default function Footer() {
         </div>
 
         <p className="footer__disclaimer" style={{ margin: "0 0 24px", color: "var(--text-muted-on-navy)", fontSize: 13, lineHeight: 1.7, maxWidth: 920 }}>
-          Disclaimer: Neutral Advisory provides strategic business advisory services. We do not provide legal advice, legal representation, or services reserved for licensed legal professionals. Where appropriate, we work alongside our clients' legal counsel and other professional advisors to support commercial strategy and negotiation planning.
+          Disclaimer: Neutral Advisory provides strategic business advisory services. We do not provide legal advice, legal representation, or services reserved for licensed legal professionals. Where appropriate, we work alongside our clients' legal teams and other professional advisors to support commercial strategy and negotiation planning.
         </p>
         
         <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 footer__bottom" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 24, color: "var(--text-muted-on-navy)", fontSize: 12 }}>
