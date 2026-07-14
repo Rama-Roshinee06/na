@@ -9,8 +9,11 @@
     "preview": "node ./node_modules/vite/bin/vite.js preview"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
+    "framer-motion": "^12.42.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-parallax-tilt": "^1.7.333",
     "react-router-dom": "^6.22.0"
   },
   "devDependencies": {

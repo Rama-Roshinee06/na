@@ -14,7 +14,16 @@
 // confirmed with the founder before this goes live. Do not quietly resolve
 // these yourself — that was the mistake in the AI-generated wireframe.
 // ============================================================================
-
+export const industriesIntro = {
+  eyebrow: "Industry Focus",
+  headline: "Advisory Coverage Across Regulated Environments",
+  body: "Neutral Advisory provides targeted negotiation and resolution guidance across highly specialized commercial sectors."
+};
+export const servicesIntro = {
+  eyebrow: "Advisory Engagements",
+  headline: "Strategic Counsel for Complex Commercial Disputes",
+  body: "We structure our advisory engagements around risk preemption, board alignment, and value protection."
+};
 export const founder = {
   name: "Shrivatsan Balagopal",
   title: "Founder & Principal",
@@ -157,36 +166,84 @@ export const about = {
 export const services = [
   {
     title: "Commercial Dispute Advisory",
+    summary: "Resolve complex commercial disputes while preserving enterprise value and long-term business relationships.",
+    focus: [
+      "Contract disputes",
+      "Joint venture conflicts",
+      "Executive negotiations",
+      "Stakeholder alignment"
+    ],
+    impact: "Faster resolution with stronger commercial relationships.",
     challenge: "Escalating contract disagreements and commercial deadlocks threatening joint ventures or critical business relationships.",
     role: "Formulating strategic negotiation postures, analyzing stakeholder leverage, and facilitating communication pathways.",
     outcome: "Sustainable commercial resolutions achieved quietly, bypassing public courts and preserving key partner relationships."
   },
   {
     title: "Executive Negotiation Strategy",
+    summary: "Shape high-value negotiation strategy so leadership can act with confidence under pressure.",
+    focus: [
+      "Leverage assessment",
+      "Board alignment",
+      "Negotiation readiness",
+      "Real-time decision support"
+    ],
+    impact: "Clear posture and better outcomes in critical executive negotiations.",
     challenge: "High-value business negotiations where leverage is misidentified and structural preparation is lacking.",
     role: "Providing scenario planning, prepared positioning, and real-time decision-support modeling for leadership teams.",
     outcome: "Optimized negotiation outcomes and aligned boardroom expectations under pressurized conditions."
   },
   {
     title: "Stakeholder Alignment",
+    summary: "Align stakeholders and restore momentum in high-stakes initiatives that have stalled.",
+    focus: [
+      "Board consensus",
+      "Lender coordination",
+      "Partner engagement",
+      "Shared economic interests"
+    ],
+    impact: "Consensus-driven decisions that keep complex initiatives moving.",
     challenge: "Conflicting priorities among boards, lenders, insurers, and key partners stalling critical corporate actions.",
     role: "Designing structured negotiation frameworks to identify shared economic interests and bridge impasses.",
     outcome: "Board and stakeholder consensus secured, restoring corporate momentum and path forward."
   },
   {
     title: "Pre-Litigation Resolution",
+    summary: "Resolve disputes discreetly before they escalate to litigation and protect corporate value.",
+    focus: [
+      "Settlement strategy",
+      "Confidential execution",
+      "Executive communications",
+      "Risk mitigation"
+    ],
+    impact: "Discreet, efficient resolutions that avoid legal escalation.",
     challenge: "Imminent threat of costly, public, and prolonged court proceedings draining executive resources.",
     role: "Developing and executing out-of-court settlement strategies and disciplined executive communications.",
     outcome: "Disputes settled discreetly and efficiently, protecting corporate value and avoiding legal exposure."
   },
   {
     title: "Board-Level Conflict Support",
+    summary: "Help boards and founders move past governance deadlock with focused independent counsel.",
+    focus: [
+      "Governance deadlock",
+      "Interest analysis",
+      "Stakeholder mediation",
+      "Decision clarity"
+    ],
+    impact: "Constructive board-level decisions without prolonging internal conflict.",
     challenge: "Sensitive governance impasses, founder disagreements, or strategic direction deadlocks.",
     role: "Acting as an independent, objective advisor to analyze leverage, interest alignment, and settlement pathways.",
     outcome: "Governance deadlock resolved and constructive executive decision-making re-established."
   },
   {
     title: "Insurance & Contract Dispute Advisory",
+    summary: "Manage insurance and contract disputes with disciplined positioning and focused claim strategy.",
+    focus: [
+      "Policy interpretation",
+      "Claims negotiation",
+      "Multi-party coordination",
+      "Recovery maximization"
+    ],
+    impact: "Stronger claim outcomes with minimized operational disruption.",
     challenge: "Significant commercial insurance claim disputes, coverage denials, or contract performance impasses.",
     role: "Analyzing complex policy terms, coordinating multi-party claim positioning, and leading settlement discussions.",
     outcome: "Claim recovery maximized and contract performance disputes settled with minimal operational disruption."

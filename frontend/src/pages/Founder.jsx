@@ -12,37 +12,38 @@ export default function Founder() {
 
   return (
     <div className="container">
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 64, alignItems: "center" }} className="grid-responsive-founder">
-        {/* Left Column: Metadata & Portrait Placeholder */}
-        <div>
-          <div className="eyebrow">Founder & Principal</div>
-          <h2 style={{ margin: "0 0 12px", color: "var(--navy)", fontSize: "2.4rem", fontWeight: 700 }}>{founder.name}</h2>
-          <p style={{ color: "var(--navy)", fontWeight: 600, fontSize: "1.1rem", margin: "0 0 20px" }}>{founder.title}</p>
-          <div className="divider" style={{ width: 64, marginBottom: 24 }}></div>
-          
+      <div className="founder-grid grid-responsive-founder">
+        <aside className="founder-meta">
+          <div>
+            <div className="eyebrow">Founder & Principal</div>
+            <h2 style={{ margin: "0 0 12px", color: "var(--navy)", fontSize: "2.4rem", fontWeight: 700 }}>{founder.name}</h2>
+            <p style={{ color: "var(--navy)", fontWeight: 600, fontSize: "1.1rem", margin: "0 0 20px" }}>{founder.title}</p>
+            <div className="divider" style={{ width: 64, marginBottom: 24 }} />
+          </div>
+
           <div style={{ marginBottom: 28 }}>
             <div style={{
               width: "100%",
               aspectRatio: "1/1",
-              borderRadius: 8,
+              borderRadius: 16,
               border: "1.5px dashed var(--navy)",
               background: "var(--navy-tint)",
               display: "flex",
-              flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              gap: 12,
               color: "var(--navy)",
               padding: 24,
-              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.02)"
+              minHeight: 320
             }}>
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-              <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", textAlign: "center" }}>
-                Founder Portrait Placeholder
-              </span>
+              <div style={{ textAlign: "center" }}>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                <div style={{ marginTop: 12, fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                  Founder Portrait Placeholder
+                </div>
+              </div>
             </div>
           </div>
 
@@ -50,17 +51,16 @@ export default function Founder() {
             {founder.tagline}
           </p>
 
-          <div style={{ background: "var(--paper)", border: "1.5px solid var(--border-light)", padding: 24, borderRadius: 8 }}>
-            <h4 style={{ color: "var(--navy)", margin: "0 0 12px", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>Core Practice Areas</h4>
-            <ul style={{ paddingLeft: 18, margin: 0, fontSize: "0.9rem", color: "var(--text-body)", lineHeight: 1.6 }}>
+          <div>
+            <h4 style={{ margin: "0 0 12px", fontSize: "0.9rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--navy)" }}>Core Practice Areas</h4>
+            <ul className="founder-chip-list">
               {expertiseAreas.map((area, i) => (
-                <li key={i} style={{ marginBottom: 8 }}>{area}</li>
+                <li key={i}>{area}</li>
               ))}
             </ul>
           </div>
-        </div>
+        </aside>
 
-        {/* Right Column: Bio & Philosophy */}
         <div>
           <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
             {founder.bio.map((p, i) => (
@@ -70,18 +70,14 @@ export default function Founder() {
             ))}
           </div>
 
-          {/* Philosophy Card */}
-          <div className="card" style={{ marginTop: 48, background: "var(--paper)", border: "1.5px solid var(--border-light)", padding: "40px" }}>
-            <div style={{ fontSize: "2.5rem", color: "rgba(42, 60, 98, 0.1)", fontFamily: "Georgia, serif", lineHeight: 1, height: 16, marginTop: -16, marginBottom: 8 }}>“</div>
-            <h4 style={{ color: "var(--navy)", fontSize: "1rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 16px" }}>Professional Philosophy</h4>
-            <p style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", color: "var(--navy)", fontStyle: "italic", lineHeight: 1.6, margin: "0 0 16px" }}>
-              "{founder.philosophy}"
-            </p>
-            <p style={{ margin: 0, fontWeight: 600, color: "var(--text-muted)", fontSize: "0.95rem" }}>— {founder.name}</p>
-          </div>
+          <section className="founder-quote" style={{ marginTop: 48 }}>
+            <h4>Professional Philosophy</h4>
+            <p>"{founder.philosophy}"</p>
+            <p style={{ marginTop: 20, fontWeight: 600, color: "var(--text-muted)", fontSize: "0.95rem" }}>— {founder.name}</p>
+          </section>
         </div>
       </div>
-      
+
       <style>{`
         @media (max-width: 900px) {
           .grid-responsive-founder {

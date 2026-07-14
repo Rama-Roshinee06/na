@@ -24,8 +24,8 @@ export default function Insights() {
 
   const featuredArticle = insights[0];
 
-  const gridArticles = selectedCategory === "All" 
-    ? filteredInsights.slice(1) 
+  const gridArticles = selectedCategory === "All"
+    ? filteredInsights.slice(1)
     : filteredInsights;
 
   return (
@@ -36,98 +36,58 @@ export default function Insights() {
         <p className="lede">{insightsIntro}</p>
       </div>
 
-      {/* Category Filter Bar */}
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 48, borderBottom: "1.5px solid var(--border-light)", paddingBottom: 20 }}>
+      <div className="insights-filter">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
-            style={{
-              padding: "10px 20px",
-              fontSize: "13px",
-              fontWeight: 600,
-              borderRadius: "20px",
-              border: "1.5px solid transparent",
-              backgroundColor: selectedCategory === cat ? "var(--navy)" : "var(--paper-dim)",
-              color: selectedCategory === cat ? "#ffffff" : "var(--text-body)",
-              transition: "all 0.15s ease",
-            }}
-            className="filter-button"
+            className={`insight-tag ${selectedCategory === cat ? "insight-tag--active" : ""}`}
           >
             {cat}
           </button>
         ))}
       </div>
 
-      {/* Featured Article (only visible when 'All' is selected) */}
       {selectedCategory === "All" && featuredArticle && (
-        <div style={{ marginBottom: 56 }}>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "1.2fr 1fr",
-            gap: 48,
-            background: "var(--paper-dim)",
-            border: "1.5px solid var(--border-light)",
-            borderRadius: 8,
-            padding: 48,
-            alignItems: "center"
-          }} className="grid-responsive-featured">
-            <div>
-              <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 16 }}>
-                <span className="eyebrow" style={{ fontSize: 10, margin: 0 }}>Featured Briefing</span>
-                <span style={{ fontSize: 12, color: "var(--text-muted)" }}>•</span>
-                <span style={{ fontSize: 12, color: "var(--text-muted)", fontWeight: 500 }}>July 2026</span>
-              </div>
-              <h3 style={{ fontSize: "2rem", color: "var(--navy)", fontWeight: 700, margin: "0 0 20px" }}>{featuredArticle.title}</h3>
-              <p style={{ fontSize: "1.1rem", lineHeight: 1.7, color: "var(--text-body)", marginBottom: 32 }}>{featuredArticle.excerpt}</p>
-              
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1.5px solid var(--border-light)", paddingTop: 20 }}>
-                <span style={{ fontSize: "12px", color: "var(--text-muted)", fontWeight: 500 }}>{featuredArticle.readTime}</span>
-                <a href="#contact" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontWeight: 700, color: "var(--navy)", fontSize: "14px" }} className="read-briefing-link">
-                  Read Briefing <span style={{ transition: "transform 0.15s" }}>→</span>
-                </a>
-              </div>
+        <div className="insights-featured grid-responsive-featured">
+          <div>
+            <div className="insight-featured__eyebrow">
+              <span className="eyebrow" style={{ fontSize: 10, margin: 0 }}>Featured Briefing</span>
+              <span>•</span>
+              <span style={{ fontSize: 11, color: "var(--text-muted)", fontWeight: 500 }}>July 2026</span>
             </div>
-            <div style={{
-              background: "var(--navy)",
-              color: "#ffffff",
-              padding: 48,
-              borderRadius: 8,
-              textAlign: "center",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              height: "100%",
-              minHeight: 280
-            }} className="featured-accent-box">
-              <h4 style={{ color: "#ffffff", fontSize: "1.35rem", fontWeight: 550, margin: "0 0 16px" }}>Executive Preparedness</h4>
-              <p style={{ fontSize: "0.95rem", color: "var(--text-muted-on-navy)", lineHeight: 1.6, margin: 0 }}>
-                "Structured preparation done weeks prior to entering the negotiation room determines 80% of the commercial outcomes."
-              </p>
+            <h3 style={{ fontSize: "2rem", color: "var(--navy)", fontWeight: 700, margin: "0 0 24px" }}>{featuredArticle.title}</h3>
+            <p style={{ fontSize: "1.1rem", lineHeight: 1.75, color: "var(--text-body)", marginBottom: 32 }}>{featuredArticle.excerpt}</p>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid var(--border-light)", paddingTop: 20 }}>
+              <span style={{ fontSize: "12px", color: "var(--text-muted)", fontWeight: 500 }}>{featuredArticle.readTime}</span>
+              <a href="#contact" className="service-card__link">Read Briefing →</a>
             </div>
+          </div>
+          <div className="insight-featured__box">
+            <h4 style={{ color: "#ffffff", fontSize: "1.35rem", fontWeight: 550, margin: "0 0 16px" }}>Executive Preparedness</h4>
+            <p style={{ color: "var(--text-muted-on-navy)", lineHeight: 1.6, margin: 0 }}>
+              "Structured preparation done weeks prior to entering the negotiation room determines 80% of the commercial outcomes."
+            </p>
           </div>
         </div>
       )}
 
-      {/* Grid Articles */}
       {gridArticles.length > 0 ? (
-        <div className="grid grid--2">
+        <div className="insight-card-grid">
           {gridArticles.map((a, i) => (
-            <article key={i} className="card" style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 40 }}>
+            <article key={i} className="insight-card">
               <div>
-                <div style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 16 }}>
+                <div className="insight-card__meta">
                   <span className="eyebrow" style={{ fontSize: 9, margin: 0, letterSpacing: "0.1em" }}>{getMappedCategory(a.category)}</span>
-                  <span style={{ fontSize: 11, color: "var(--text-muted)" }}>•</span>
+                  <span>•</span>
                   <span style={{ fontSize: 11, color: "var(--text-muted)", fontWeight: 500 }}>Q3 2026</span>
                 </div>
-                <h3 style={{ color: "var(--navy)", margin: "0 0 16px", fontSize: "1.35rem", fontWeight: 700 }}>{a.title}</h3>
-                <p style={{ fontSize: "0.95rem", lineHeight: 1.65, color: "var(--text-body)" }}>{a.excerpt}</p>
+                <h3 className="insight-card__title">{a.title}</h3>
+                <p className="insight-card__excerpt">{a.excerpt}</p>
               </div>
-              <div style={{ marginTop: 28, display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1.5px solid var(--border-light)", paddingTop: 20 }}>
-                <span style={{ fontSize: "12px", color: "var(--text-muted)", fontWeight: 500 }}>{a.readTime}</span>
-                <a href="#contact" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontWeight: 700, color: "var(--navy)", fontSize: "13px" }} className="read-briefing-link">
-                  Read Briefing <span style={{ transition: "transform 0.15s" }}>→</span>
-                </a>
+              <div className="insight-card__footer">
+                <span>{a.readTime}</span>
+                <a href="#contact" className="service-card__link">Read Briefing →</a>
               </div>
             </article>
           ))}
@@ -137,27 +97,6 @@ export default function Insights() {
           No briefings found in this category.
         </div>
       )}
-
-      <style>{`
-        .filter-button:hover {
-          background-color: var(--navy) !important;
-          color: #ffffff !important;
-        }
-        .read-briefing-link:hover span {
-          transform: translateX(4px);
-        }
-        @media (max-width: 900px) {
-          .grid-responsive-featured {
-            grid-template-columns: 1fr !important;
-            gap: 32px !important;
-            padding: 32px !important;
-          }
-          .featured-accent-box {
-            min-height: 200px !important;
-            padding: 32px !important;
-          }
-        }
-      `}</style>
     </div>
   );
 }
