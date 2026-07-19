@@ -5,59 +5,58 @@ import {
   commercialScenarios
 } from "../data/content.js";
 
-function SectionDivider({ label, accentColor = "var(--navy)" }) {
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 32 }}>
-      <div style={{ width: 3, height: 28, background: accentColor, borderRadius: 2, flexShrink: 0 }} />
-      <h3 style={{ margin: 0, fontSize: "1.05rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--navy)" }}>
-        {label}
-      </h3>
-    </div>
-  );
-}
-
+// ── Numbered service card (matches template: number top-left, title, body, tag chips)
 function ServiceCard({ service, index }) {
+  const num = String(index + 1).padStart(2, "0");
   return (
-    <motion.article className="service-card"
-      initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }} transition={{ duration: 0.45, delay: (index % 2) * 0.1 }}>
-      <div>
-        <h3 className="service-card__title">{service.title}</h3>
-        <p className="service-card__summary">{service.summary}</p>
-        <div className="service-card__section">
-          <span className="service-card__label">Areas of Focus</span>
-          <ul className="service-card__list">{service.focus.map(f => <li key={f}>{f}</li>)}</ul>
-        </div>
-        <div className="service-card__section">
-          <span className="service-card__label">Business Impact</span>
-          <p className="service-card__impact">{service.impact}</p>
-        </div>
+    <motion.article
+      className="svc-card"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.45, delay: (index % 2) * 0.1 }}
+    >
+      <div className="svc-card__num">{num}</div>
+      <h3 className="svc-card__title">{service.title}</h3>
+      <p className="svc-card__summary">{service.summary}</p>
+      <div className="svc-card__tags">
+        {service.focus.map((f) => (
+          <span key={f} className="svc-tag">{f}</span>
+        ))}
       </div>
-      <a href="#contact" className="service-card__link">Discuss This Engagement →</a>
     </motion.article>
   );
 }
 
-function IndustryRow({ sector, index }) {
+// ── Industry tile — matches template: short bar, name only, clean cell
+function IndustryTile({ title, index }) {
   return (
     <motion.div
-      className="industry-row"
-      initial={{ opacity: 0, y: 20 }}
+      className="ind-tile"
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.45, delay: (index % 3) * 0.1 }}
+      transition={{ duration: 0.4, delay: (index % 4) * 0.07 }}
     >
-      <div>
-        <h3 className="industry-row__title">{sector.title}</h3>
-        {sector.note && <p style={{ color: "var(--text-muted)", marginTop: 8, fontSize: "0.95rem", lineHeight: 1.7 }}>{sector.note}</p>}
-      </div>
-      <ul className="industry-row__list">
-        {sector.items.map((item) => <li key={item}>{item}</li>)}
-      </ul>
+      <div className="ind-tile__bar" aria-hidden="true" />
+      <span className="ind-tile__name">{title}</span>
     </motion.div>
   );
 }
 
+// Flatten sectors + add extra tiles to fill the 4×2 grid
+const industryTiles = [
+  "Banking & Financial Services",
+  "Insurance & Risk Management",
+  "Telecommunications",
+  "Highly Regulated Industries",
+  "Technology & Enterprise",
+  "Media & Communications",
+  "Real Estate & Infrastructure",
+  "Government & Public Sector"
+];
+
+// ── Scenario card (unchanged layout, data-driven)
 function ScenarioCard({ scenario, index }) {
   return (
     <motion.article
@@ -88,8 +87,8 @@ export default function Services() {
   return (
     <div className="container">
 
-      {/* Header */}
-      <div style={{ marginBottom: 56 }}>
+      {/* ── HEADER ──────────────────────────────────────────────────────── */}
+      <div style={{ marginBottom: 64 }}>
         <div className="eyebrow">{services.intro.eyebrow}</div>
         <h2 style={{ maxWidth: 720, margin: "0 0 20px", color: "var(--navy)" }}>
           {services.intro.headline}
@@ -97,91 +96,185 @@ export default function Services() {
         <p className="lede">{services.intro.body}</p>
       </div>
 
-      {/* Part 1 — Core Advisory Services (6 services) */}
-      <div style={{ marginBottom: 72 }}>
-        <SectionDivider label="Core Advisory Services" accentColor="var(--navy)" />
-        <div className="services-grid">
-          {services.coreServices.map((s, i) => <ServiceCard key={s.title} service={s} index={i} />)}
+      {/* ── PART 1 — SERVICES GRID ──────────────────────────────────────── */}
+      <div style={{ marginBottom: 96 }}>
+        <div className="svc-grid">
+          {services.coreServices.map((s, i) => (
+            <ServiceCard key={s.title} service={s} index={i} />
+          ))}
         </div>
       </div>
 
-      {/* Part 2 — Industry Experience */}
-      <div style={{ borderTop: "1.5px solid var(--border-light)", paddingTop: 64, marginBottom: 72 }}>
-        <SectionDivider label={industryExperience.eyebrow} accentColor="var(--navy-light)" />
-        <h2 style={{ maxWidth: 720, margin: "0 0 16px", color: "var(--navy)" }}>
-          {industryExperience.headline}
-        </h2>
-        <p style={{ fontSize: "1rem", color: "var(--text-muted)", lineHeight: 1.75, maxWidth: 680, marginBottom: 40 }}>
-          {industryExperience.body}
-        </p>
-        <div className="industries-list">
-          {industryExperience.sectors.map((sector, i) => <IndustryRow key={sector.title} sector={sector} index={i} />)}
+      {/* ── PART 2 — INDUSTRIES SERVED ──────────────────────────────────── */}
+      <div style={{ borderTop: "1.5px solid var(--border-light)", paddingTop: 80, marginBottom: 96 }}>
+        <div className="ind-section">
+
+          {/* Left label */}
+          <div className="ind-label-col">
+            <motion.h2
+              className="ind-label"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              {industryExperience.headline}
+            </motion.h2>
+          </div>
+
+          {/* Right 4×2 tile grid */}
+          <div className="ind-grid">
+            {industryTiles.map((title, i) => (
+              <IndustryTile key={title} title={title} index={i} />
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Part 3 — Commercial Scenarios */}
-      <div style={{ borderTop: "1.5px solid var(--border-light)", paddingTop: 64 }}>
-        <div style={{ marginBottom: 40 }}>
-          <SectionDivider label={commercialScenarios.eyebrow} accentColor="var(--accent-teal)" />
+      {/* ── PART 3 — COMMERCIAL SCENARIOS ───────────────────────────────── */}
+      <div style={{ borderTop: "1.5px solid var(--border-light)", paddingTop: 80 }}>
+        <div style={{ marginBottom: 48 }}>
+          <div className="eyebrow">{commercialScenarios.eyebrow}</div>
           <h2 style={{ maxWidth: 680, margin: "0 0 16px", color: "var(--navy)" }}>
             {commercialScenarios.headline}
           </h2>
-          <p className="lede" style={{ maxWidth: 700, marginBottom: 16 }}>
+          <p className="lede" style={{ maxWidth: 700 }}>
             {commercialScenarios.body}
           </p>
         </div>
 
         <div className="scenario-grid">
-          {commercialScenarios.scenarios.map((s, i) => <ScenarioCard key={s.title} scenario={s} index={i} />)}
+          {commercialScenarios.scenarios.map((s, i) => (
+            <ScenarioCard key={s.title} scenario={s} index={i} />
+          ))}
         </div>
       </div>
 
       <style>{`
-        /* ── Industries list (editorial row layout) ────────────── */
-        .industries-list {
+        /* ── SERVICE CARD (numbered + tag chips) ──────────────────── */
+        .svc-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0;
+          border-top: 1px solid var(--border-light);
+          border-left: 1px solid var(--border-light);
+        }
+
+        .svc-card {
+          padding: 40px 36px 36px;
+          border-right: 1px solid var(--border-light);
+          border-bottom: 1px solid var(--border-light);
           display: flex;
           flex-direction: column;
-          border-top: 1.5px solid var(--border-light);
+          gap: 14px;
+          transition: background 0.2s ease;
         }
 
-        .industry-row {
-          display: grid;
-          grid-template-columns: 1fr 2fr;
-          gap: 48px;
-          padding: 32px 0;
-          border-bottom: 1.5px solid var(--border-light);
+        .svc-card:hover {
+          background: var(--paper-dim);
         }
 
-        .industry-row__title {
-          color: var(--navy);
-          margin: 0;
+        .svc-card__num {
+          font-size: 0.78rem;
+          font-weight: 700;
+          color: #C9A84C;
+          letter-spacing: 0.12em;
+          line-height: 1;
+        }
+
+        .svc-card__title {
           font-size: 1.35rem;
           font-weight: 700;
-        }
-
-        .industry-row__list {
-          padding-left: 20px;
+          color: var(--navy);
           margin: 0;
-          color: var(--text-body);
-          line-height: 1.7;
+          line-height: 1.2;
+        }
+
+        .svc-card__summary {
+          font-size: 0.97rem;
+          line-height: 1.75;
+          color: var(--text-muted);
+          margin: 0;
+          flex-grow: 1;
+        }
+
+        .svc-card__tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-top: 4px;
+        }
+
+        .svc-tag {
+          padding: 5px 12px;
+          border: 1px solid var(--border-light);
+          border-radius: 4px;
+          font-size: 0.78rem;
+          font-weight: 500;
+          color: var(--text-muted);
+          background: transparent;
+          letter-spacing: 0.02em;
+          transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .svc-card:hover .svc-tag {
+          border-color: rgba(42,60,98,0.3);
+          color: var(--navy);
+        }
+
+        /* ── INDUSTRIES SECTION ───────────────────────────────────── */
+        .ind-section {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          grid-template-columns: 220px 1fr;
+          gap: 64px;
+          align-items: start;
+        }
+
+        .ind-label {
+          font-size: clamp(1.5rem, 3vw, 2rem);
+          font-weight: 700;
+          color: var(--navy);
+          line-height: 1.2;
+          letter-spacing: -0.01em;
+          margin: 0;
+        }
+
+        .ind-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 0;
+          border-top: 1px solid var(--border-light);
+          border-left: 1px solid var(--border-light);
+        }
+
+        .ind-tile {
+          padding: 28px 24px;
+          border-right: 1px solid var(--border-light);
+          border-bottom: 1px solid var(--border-light);
+          display: flex;
+          flex-direction: column;
           gap: 12px;
+          transition: background 0.2s ease;
         }
 
-        .industry-row__list li {
-          font-size: 1rem;
+        .ind-tile:hover {
+          background: var(--navy-tint);
         }
 
-        @media (max-width: 900px) {
-          .industry-row {
-            grid-template-columns: 1fr;
-            gap: 16px;
-            padding: 24px 0;
-          }
+        .ind-tile__bar {
+          width: 24px;
+          height: 2px;
+          background: #C9A84C;
         }
 
-        /* ── Scenario Cards ────────────────────────────────────── */
+        .ind-tile__name {
+          font-size: 0.92rem;
+          font-weight: 600;
+          color: var(--navy);
+          line-height: 1.4;
+        }
+
+        /* ── SCENARIO CARDS ───────────────────────────────────────── */
         .scenario-grid {
           display: grid;
           grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -191,7 +284,7 @@ export default function Services() {
         .scenario-card {
           background: var(--paper);
           border: 1px solid var(--border-light);
-          border-radius: 16px;
+          border-radius: 4px;
           padding: 36px 32px;
           display: flex;
           flex-direction: column;
@@ -200,37 +293,36 @@ export default function Services() {
         }
 
         .scenario-card:hover {
-          transform: translateY(-4px);
+          transform: translateY(-3px);
           border-color: var(--navy);
-          box-shadow: 0 20px 60px rgba(17, 31, 64, 0.09);
+          box-shadow: 0 16px 48px rgba(17,31,64,0.08);
         }
 
         .scenario-card__number {
-          font-size: 2.4rem;
+          font-size: 0.78rem;
           font-weight: 700;
-          color: var(--border-light);
+          color: #C9A84C;
+          letter-spacing: 0.12em;
           line-height: 1;
-          font-family: var(--font-display);
-          letter-spacing: -0.03em;
         }
 
         .scenario-card__tag {
           display: inline-flex;
           align-items: center;
-          padding: 5px 14px;
-          border-radius: 999px;
-          background: var(--navy-tint);
-          color: var(--navy);
+          padding: 4px 12px;
+          border: 1px solid var(--border-light);
+          border-radius: 4px;
           font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.1em;
+          font-weight: 600;
+          letter-spacing: 0.08em;
           text-transform: uppercase;
+          color: var(--text-muted);
           width: fit-content;
         }
 
         .scenario-card__title {
           margin: 0;
-          font-size: 1.2rem;
+          font-size: 1.15rem;
           font-weight: 700;
           color: var(--navy);
           line-height: 1.25;
@@ -245,33 +337,44 @@ export default function Services() {
 
         .scenario-card__label {
           display: block;
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           font-weight: 700;
-          letter-spacing: 0.18em;
+          letter-spacing: 0.16em;
           text-transform: uppercase;
           color: var(--navy);
-          margin-bottom: 8px;
+          margin-bottom: 6px;
         }
 
         .scenario-card__situation p,
         .scenario-card__resolution p {
           margin: 0;
-          font-size: 0.97rem;
+          font-size: 0.95rem;
           line-height: 1.75;
           color: var(--text-body);
         }
 
         .scenario-card__resolution {
-          padding-top: 12px;
+          padding-top: 14px;
           border-top: 1px solid var(--border-light);
         }
 
+        /* ── RESPONSIVE ───────────────────────────────────────────── */
         @media (max-width: 1024px) {
+          .svc-grid { grid-template-columns: 1fr; }
+          .ind-grid  { grid-template-columns: repeat(2, minmax(0, 1fr)); }
           .scenario-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
 
+        @media (max-width: 860px) {
+          .ind-section { grid-template-columns: 1fr; gap: 32px; }
+          .ind-label-col { max-width: 320px; }
+        }
+
         @media (max-width: 640px) {
+          .ind-grid    { grid-template-columns: 1fr; }
           .scenario-grid { grid-template-columns: 1fr; }
+          .svc-grid { border-left: none; }
+          .svc-card { border-left: 1px solid var(--border-light); padding: 28px 24px; }
         }
       `}</style>
     </div>

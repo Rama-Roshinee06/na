@@ -1,5 +1,5 @@
 .navbar {
-  background: #2A3C62;
+  background: #0D1B2A;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: sticky;
   top: 0;
@@ -112,7 +112,7 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background: #2A3C62;
+  background: #0D1B2A;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   padding: 24px 32px;

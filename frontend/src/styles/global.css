@@ -1,5 +1,5 @@
 :root {
-  --navy-deep: #1A2846; /* Premium dark navy */
+  --navy-deep: #0D1B2A; /* Premium dark navy — matches template hero */
   --navy: #2A3C62; /* Primary brand color */
   --navy-light: #374E7C; /* Muted brand navy tint */
   --navy-tint: #EFF2F7; /* Very light brand navy tint */
@@ -1314,7 +1314,7 @@ p { margin: 0 0 20px; color: var(--text-muted); font-size: 1.09rem; }
 
 /* ── HERO SECTION ─────────────────────────────────────────────────────────── */
 .hero-section {
-  background: linear-gradient(135deg, var(--navy) 0%, #0a1929 100%);
+  background: #0D1B2A;
   color: #ffffff;
   min-height: 100vh;
   display: flex;
