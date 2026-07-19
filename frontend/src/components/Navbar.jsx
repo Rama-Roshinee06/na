@@ -3,13 +3,10 @@ import { brand } from "../data/content.js";
 import "./Navbar.css";
 
 const links = [
-  { to: "#why-neutral", label: "Why Neutral" },
+  { to: "#about",    label: "About"    },
   { to: "#services", label: "Services" },
-  { to: "#industries", label: "Industries" },
-  { to: "#approach", label: "Our Approach" },
-  { to: "#founder", label: "Founder" },
-  { to: "#insights", label: "Insights" },
-  { to: "#contact", label: "Contact" }
+  { to: "#founder",  label: "Founder"  },
+  { to: "#contact",  label: "Contact"  }
 ];
 
 export default function Navbar() {
@@ -18,49 +15,29 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 120; // Scroll calculation offset
-
+      const offset = window.scrollY + 120;
       for (const link of links) {
-        const targetId = link.to.substring(1);
-        const element = document.getElementById(targetId);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(link.to);
-            return;
-          }
+        const el = document.getElementById(link.to.substring(1));
+        if (el && offset >= el.offsetTop && offset < el.offsetTop + el.offsetHeight) {
+          setActiveSection(link.to);
+          return;
         }
       }
-
-      if (window.scrollY < 100) {
-        setActiveSection("");
-      }
+      if (window.scrollY < 100) setActiveSection("");
     };
-
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial active state calculation
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLinkClick = (e, target) => {
+  const scrollTo = (e, target) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    
-    // Smooth scroll offset to clear sticky navbar height
     window.history.pushState(null, "", target);
-
-    const targetId = target.substring(1);
-    const element = document.getElementById(targetId);
-    if (element) {
-      const navbarHeight = 80;
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - navbarHeight;
-
+    const el = document.getElementById(target.substring(1));
+    if (el) {
       window.scrollTo({
-        top: offsetPosition,
+        top: el.getBoundingClientRect().top + window.scrollY - 80,
         behavior: "smooth"
       });
     }
@@ -69,18 +46,19 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="container navbar__inner">
-        <a href="#home" className="navbar__brand" onClick={(e) => handleLinkClick(e, "#home")}>
+
+        <a href="#home" className="navbar__brand" onClick={(e) => scrollTo(e, "#home")}>
           <span className="navbar__brand-name">{brand.name.toUpperCase()}</span>
           <span className="navbar__brand-sub">{brand.subtitle}</span>
         </a>
 
-        {/* Desktop Links (Exclude Contact from regular nav since it has a dedicated button) */}
+        {/* Desktop — About · Services · Founder, Contact as CTA */}
         <nav className="navbar__links">
-          {links.slice(0, 6).map((l) => (
+          {links.slice(0, 3).map((l) => (
             <a
               key={l.to}
               href={l.to}
-              onClick={(e) => handleLinkClick(e, l.to)}
+              onClick={(e) => scrollTo(e, l.to)}
               className={`navbar__link ${activeSection === l.to ? "navbar__link--active" : ""}`}
             >
               {l.label}
@@ -90,21 +68,23 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          onClick={(e) => handleLinkClick(e, "#contact")}
-          className={`navbar__cta ${activeSection === "#contact" ? "navbar__cta--active" : ""}`}
+          onClick={(e) => scrollTo(e, "#contact")}
+          className="navbar__cta"
         >
           Schedule a Confidential Consultation
         </a>
 
-        {/* Mobile Hamburger toggle */}
-        <button className="navbar__hamburger" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle Menu">
-          <span className={`navbar__hamburger-bar ${mobileMenuOpen ? "navbar__hamburger-bar--open" : ""}`}></span>
-          <span className={`navbar__hamburger-bar ${mobileMenuOpen ? "navbar__hamburger-bar--open" : ""}`}></span>
-          <span className={`navbar__hamburger-bar ${mobileMenuOpen ? "navbar__hamburger-bar--open" : ""}`}></span>
+        <button
+          className="navbar__hamburger"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle Menu"
+        >
+          <span className={`navbar__hamburger-bar ${mobileMenuOpen ? "navbar__hamburger-bar--open" : ""}`} />
+          <span className={`navbar__hamburger-bar ${mobileMenuOpen ? "navbar__hamburger-bar--open" : ""}`} />
+          <span className={`navbar__hamburger-bar ${mobileMenuOpen ? "navbar__hamburger-bar--open" : ""}`} />
         </button>
       </div>
 
-      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="navbar__mobile-drawer">
           <nav className="navbar__mobile-links">
@@ -112,7 +92,7 @@ export default function Navbar() {
               <a
                 key={l.to}
                 href={l.to}
-                onClick={(e) => handleLinkClick(e, l.to)}
+                onClick={(e) => scrollTo(e, l.to)}
                 className={`navbar__mobile-link ${activeSection === l.to ? "navbar__mobile-link--active" : ""}`}
               >
                 {l.label}
