@@ -16,7 +16,7 @@ export const brand = {
 // ── HERO (Home Page) ──────────────────────────────────────────────────────────
 
 export const hero = {
-  headline: "We Help Executives Resolve Commercial Disputes Before They Become Litigation",
+  headline: "We Help Executives Resolve Commercial Disputes Before it turns into Litigation",
   body:
     "High-stakes strategic negotiation and commercial dispute advisory, helping organizations achieve resolution while navigating complex, institutional red tape.",
   primaryCta: "Request Confidential Consultation",
